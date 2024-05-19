@@ -4,4 +4,4 @@ from .models import Character
 
 # Create your views here.
 class CharacterList(generic.ListView):
-    model = Character
+    queryset = Character.objects.filter(status=1)
