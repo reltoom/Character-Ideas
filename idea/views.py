@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Character
 
@@ -7,3 +7,27 @@ class CharacterList(generic.ListView):
     queryset = Character.objects.filter(status=1)
     template_name = "idea/index.html"
     paginate_by = 2
+
+
+def character_detail(request, slug):
+    """
+    Display an individual :model:`idea.Character`.
+
+    **Context**
+
+    ``character``
+        An instance of :model:`idea.Character`.
+
+    **Template:**
+
+    :template:`idea/character_detail.html`
+    """
+
+    queryset = Character.objects.filter(status=1)
+    character = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "idea/character_detail.html",
+        {"character": character},
+    )

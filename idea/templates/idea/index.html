@@ -18,7 +18,7 @@
                                     <p class="creator">Creator: {{ character.creator }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="">
+                            <a href="{% url 'character_detail' character.slug %}" class="">
                                 <h2 class="card-title">{{ character.title }}</h2>
                                 <p class="card-text">{{ character.excerpt }}</p>
                             </a>
