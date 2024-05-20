@@ -59,3 +59,7 @@
     transform: skew(15deg);
     z-index: 100;
 }
+
+.faded {
+    color: rgb(172, 175, 175);
+}

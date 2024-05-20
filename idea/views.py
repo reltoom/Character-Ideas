@@ -25,9 +25,13 @@ def character_detail(request, slug):
 
     queryset = Character.objects.filter(status=1)
     character = get_object_or_404(queryset, slug=slug)
+    comments = character.comments.all().order_by("-created_on")
+    comment_count = character.comments.filter(approved=True).count()
 
     return render(
         request,
         "idea/character_detail.html",
-        {"character": character},
+        {"character": character,
+         "comments": comments,
+         "comment_count": comment_count,},
     )
