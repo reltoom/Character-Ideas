@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Character, Comment
-from .forms import CommentForm
+from .forms import CommentForm, CharacterForm
 
 # Create your views here.
 class CharacterList(generic.ListView):
@@ -80,7 +81,7 @@ def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
-    queryset = Character.objects.filter(status=1)
+    queryset = Character.objects.filter(status=1) 
     character = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
@@ -91,3 +92,18 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('character_detail', args=[slug]))
+
+
+@login_required
+def create_character(request):
+    if request.method == 'POST':
+        character_form = CharacterForm(request.POST)
+        if character_form.is_valid():
+            character = character_form.save(commit=False)
+            character.creator = request.user
+            character.save()
+            return redirect('home')  # Redirect to the home page
+    
+    character_form = CharacterForm()
+
+    return render(request, 'idea/create_character.html', {'character_form': character_form})

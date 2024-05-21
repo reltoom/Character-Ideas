@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>New character</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{  character_form | crispy }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

@@ -14,7 +14,7 @@ class Character(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     excerpt = models.TextField(blank=True, max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
 
