@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.forms.utils import ErrorList
-from django.http import JsonResponse
 from .models import Character, Comment
 from .forms import CommentForm, CharacterForm
 
