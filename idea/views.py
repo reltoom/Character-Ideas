@@ -3,6 +3,8 @@ from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.forms.utils import ErrorList
+from django.http import JsonResponse
 from .models import Character, Comment
 from .forms import CommentForm, CharacterForm
 
@@ -103,6 +105,17 @@ def create_character(request):
             character.creator = request.user
             character.save()
             return redirect('home')  # Redirect to the home page
+        else:
+             # Check if the error is due to non-unique title
+            if 'title' in character_form.errors:
+                # Pre-fill the form with user entered data
+                character_form = CharacterForm(request.POST)
+                # Add the error message to the form
+                character_form.errors['title'] = ErrorList([
+                    "A character with this title already exists."])
+                # Display the form with the modal
+                return render(request, 'idea/create_character.html',
+                              {'character_form': character_form, 'show_modal': True})
     
     character_form = CharacterForm()
 

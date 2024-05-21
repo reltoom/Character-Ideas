@@ -16,7 +16,14 @@ class CharacterForm(forms.ModelForm):
         fields = ['title', 'content',]
 
     title = forms.CharField(max_length=100, required=True)
-    content = forms.TextInput()
+    content = forms.CharField(widget=forms.Textarea)
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        # Check if a character with the same title exists
+        if Character.objects.filter(title__iexact=title).exists():
+            raise forms.ValidationError("A character with this title already exists.")
+        return title
 
     def save(self, commit=True):
         instance = super().save(commit=False)

@@ -4,11 +4,11 @@
 
 {% block content %}
 <h2>New character</h2>
-  <form method="post">
+<form method="post">
     {% csrf_token %}
-    {{  character_form | crispy }}
+    {{ character_form | crispy }}
     <button type="submit">Submit</button>
-  </form>
+</form>
 {% endblock content %}
 
 {% block extras %}
