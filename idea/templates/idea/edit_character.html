@@ -3,11 +3,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h2>New character</h2>
+<h2>Edit {{  character.title  }}</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ character_form | crispy }}
-    <button type="submit">Submit</button>
+    <button type="submit">Save Changes</button>
 </form>
 {% endblock content %}
-

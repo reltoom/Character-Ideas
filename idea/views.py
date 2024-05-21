@@ -140,3 +140,17 @@ class MyCharactersList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Character.objects.filter(creator=self.request.user)
+    
+
+@login_required
+def edit_character(request, slug):
+    character = get_object_or_404(Character, slug=slug, creator=request.user)
+    if request.method == 'POST':
+        form = CharacterForm(request.POST, request.FILES, instance=character)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Character updated successfully!')
+            return redirect('my_characters')
+    else:
+        form = CharacterForm(instance=character)
+    return render(request, 'idea/edit_character.html', {'character': character, 'character_form': form})

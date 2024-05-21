@@ -31,6 +31,9 @@
                             <hr />
                             <p class="card-text text-muted h6">{{ character.created_on }}
                             </p>
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url 'edit_character' character.slug %}" class="btn btn-primary">Edit</a>
+                            </div>
                         </div>
                     </div>
                 </div>

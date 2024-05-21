@@ -13,17 +13,19 @@ class CommentForm(forms.ModelForm):
 class CharacterForm(forms.ModelForm):
     class Meta:
         model = Character
-        fields = ['title', 'content', 'featured_image']
+        fields = ['title', 'content', 'featured_image', 'excerpt']
 
     title = forms.CharField(max_length=100, required=True)
     content = forms.CharField(widget=forms.Textarea)
 
 
     def clean_title(self):
-        title = self.cleaned_data['title']
-        # Check if a character with the same title exists
-        if Character.objects.filter(title__iexact=title).exists():
-            raise forms.ValidationError("A character with this title already exists.")
+        title = self.cleaned_data.get('title')
+        instance = self.instance
+        if instance.title != title:
+            # Title has been changed, check if a character with the new title exists
+            if Character.objects.filter(title__iexact=title).exists():
+                raise forms.ValidationError("A character with this title already exists.")
         return title
 
     def save(self, commit=True):
