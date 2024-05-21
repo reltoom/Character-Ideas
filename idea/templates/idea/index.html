@@ -14,6 +14,11 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                {% if "placeholder" in character.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ character.featured_image.url }}" alt="{{ character.title }}">
+                                {% endif %}
                                 <div class="image-flash">
                                     <p class="creator">Creator: {{ character.creator }}</p>
                                 </div>
