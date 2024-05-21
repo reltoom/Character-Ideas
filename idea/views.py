@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
+from django.views.generic import ListView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.forms.utils import ErrorList
 from .models import Character, Comment
@@ -128,5 +130,13 @@ def my_characters(request):
     """
     characters = Character.objects.filter(creator=request.user)
     return render(request, 'idea/my_characters.html', {'characters': characters})
-    
-    
+
+
+class MyCharactersList(LoginRequiredMixin, ListView):
+    model = Character
+    template_name = 'idea/my_characters.html'
+    context_object_name = 'characters'
+    paginate_by = 4
+
+    def get_queryset(self):
+        return Character.objects.filter(creator=self.request.user)
