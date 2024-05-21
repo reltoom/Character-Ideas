@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import About, QuestionForUs
 from django_summernote.admin import SummernoteModelAdmin
-
+from .models import About, QuestionForUs
 
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):

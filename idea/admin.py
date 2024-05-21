@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Character, Comment
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Character, Comment
 
 @admin.register(Character) 
 class PostAdmin(SummernoteModelAdmin):
