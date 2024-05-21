@@ -59,6 +59,10 @@
                         <a class="nav-link {% if request.path == create_character %}active"
                         aria-current="page{% endif %}" href="{% url 'create_character' %}">Create Character</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == my_characters %}active"
+                        aria-current="page{% endif %}" href="{% url 'my_characters' %}">My Characters</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"

@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 
-<!-- index.html content starts here -->
+<!-- my_characters.html content starts here -->
 <div class="container-fluid">
     <div class="row">
 
         <!-- Character Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for character in character_list %}
+                {% for character in characters %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -17,7 +17,7 @@
                                 {% if "placeholder" in character.featured_image.url %}
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ character.featured_image.url }}" alt="{{ character.title }}">
+                                <img class="card-img-top" src="{{ character.featured_image.url }}" alt="{{ character.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="creator">Creator: {{ character.creator }}</p>
@@ -29,7 +29,7 @@
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ character.created_on}}
+                            <p class="card-text text-muted h6">{{ character.created_on }}
                             </p>
                         </div>
                     </div>
@@ -60,5 +60,5 @@
     {% endif %}
 </div>
 
-<!-- index.html content ends here -->
+<!-- my_characters.html content ends here -->
 {% endblock %}

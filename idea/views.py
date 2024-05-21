@@ -11,7 +11,7 @@ from .forms import CommentForm, CharacterForm
 class CharacterList(generic.ListView):
     queryset = Character.objects.filter(status=1)
     template_name = "idea/index.html"
-    paginate_by = 2
+    paginate_by = 4
 
 
 def character_detail(request, slug):
@@ -119,3 +119,14 @@ def create_character(request):
     # GET request - display the empty form
     character_form = CharacterForm()
     return render(request, 'idea/create_character.html', {'character_form': character_form})
+
+
+@login_required
+def my_characters(request):
+    """
+    Display a list of characters created by the logged-in user.
+    """
+    characters = Character.objects.filter(creator=request.user)
+    return render(request, 'idea/my_characters.html', {'characters': characters})
+    
+    
