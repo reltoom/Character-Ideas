@@ -9,11 +9,15 @@
     
 }
 
+.about-img {
+    width: 100%;
+}
 
 /* Need to go over these...not custom--testing only*/
 .scale {
-    width: 100%;
+    width: 60%;
     height: auto;
+    
 }
 
 .author {
@@ -54,4 +58,8 @@
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
+}
+
+.faded {
+    color: rgb(172, 175, 175);
 }
