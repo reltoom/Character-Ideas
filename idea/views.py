@@ -99,24 +99,24 @@ def comment_delete(request, slug, comment_id):
 @login_required
 def create_character(request):
     if request.method == 'POST':
-        character_form = CharacterForm(request.POST)
+        character_form = CharacterForm(request.POST, request.FILES)
         if character_form.is_valid():
             character = character_form.save(commit=False)
             character.creator = request.user
             character.save()
-            return redirect('home')  # Redirect to the home page
+            return redirect('home')  # Redirect to the 'home' after save
         else:
              # Check if the error is due to non-unique title
             if 'title' in character_form.errors:
                 # Pre-fill the form with user entered data
                 character_form = CharacterForm(request.POST)
-                # Add the error message to the form
+                # Error message displays to the form
                 character_form.errors['title'] = ErrorList([
                     "A character with this title already exists."])
-                # Display the form with the modal
+                # Render the form with errors
                 return render(request, 'idea/create_character.html',
-                              {'character_form': character_form, 'show_modal': True})
+                              {'character_form': character_form})
     
+    # GET request - display the empty form
     character_form = CharacterForm()
-
     return render(request, 'idea/create_character.html', {'character_form': character_form})

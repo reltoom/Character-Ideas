@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>New character</h2>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ character_form | crispy }}
     <button type="submit">Submit</button>

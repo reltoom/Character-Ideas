@@ -13,10 +13,11 @@ class CommentForm(forms.ModelForm):
 class CharacterForm(forms.ModelForm):
     class Meta:
         model = Character
-        fields = ['title', 'content',]
+        fields = ['title', 'content', 'featured_image']
 
     title = forms.CharField(max_length=100, required=True)
     content = forms.CharField(widget=forms.Textarea)
+
 
     def clean_title(self):
         title = self.cleaned_data['title']
