@@ -42,7 +42,7 @@ def character_detail(request, slug):
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval')
+                'Comment created!')
             
     comment_form = CommentForm()
 
