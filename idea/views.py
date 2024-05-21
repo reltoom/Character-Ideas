@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
-from .models import Character
-from .forms import CommentForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from .models import Character, Comment
+from .forms import CommentForm
 
 # Create your views here.
 class CharacterList(generic.ListView):
@@ -50,3 +51,26 @@ def character_detail(request, slug):
          "comment_count": comment_count,
          "comment_form": comment_form,},
     )
+
+
+def comment_edit(request, slug, comment_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Character.objects.filter(status=1)
+        character = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.creator == request.user:
+            comment = comment_form.save(commit=False)
+            comment.character = character
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('character_detail', args=[slug]))
