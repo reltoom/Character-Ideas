@@ -154,3 +154,15 @@ def edit_character(request, slug):
     else:
         form = CharacterForm(instance=character)
     return render(request, 'idea/edit_character.html', {'character': character, 'character_form': form})
+
+
+@login_required
+def delete_character(request, slug):
+    # Retrieve the character based on the slug
+    character = get_object_or_404(Character, slug=slug, creator=request.user)
+    # Perform the deletion operation
+    character.delete()
+    #Successful delete message
+    messages.success(request, 'Character successfully deleted!')
+    # Redirect the user back to my_characters page
+    return redirect('my_characters')
