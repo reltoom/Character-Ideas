@@ -30,7 +30,10 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <article class="card-text">{{ character.race | safe }}</article>
+                <article class="card-text">{{ character.gender | safe }}</article>
                 <article class="card-text">{{ character.class_archetype | safe }}</article>
+                <article class="card-text">{{ character.weapons | safe }}</article>
+                <article class="card-text">{{ character.armor | safe }}</article>
                 <article class="card-text">{{ character.description | safe }}</article>
             </div>
         </div>
