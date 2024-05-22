@@ -1,11 +1,11 @@
 .creator {
-    color: darkgreen;
+    color: darkorange;
     margin: 4px;
     text-transform: uppercase;
 }
 
 .footer {
-    background-color: darkblue;
+    background-color: rgb(32, 37, 37);
     
 }
 
@@ -15,10 +15,13 @@
 .index-image-container {
     height: 80vh;
     overflow: hidden;
+    background-color: rgb(32, 37, 37);
 }
 
 .image-container img {
     object-fit: cover;
+    justify-content: center;
+    align-items: center;
 }
 /* Need to go over these...not custom--testing only*/
 .scale {

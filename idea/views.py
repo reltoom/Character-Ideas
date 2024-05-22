@@ -13,7 +13,7 @@ from .forms import CommentForm, CharacterForm
 class CharacterList(generic.ListView):
     queryset = Character.objects.filter(status=1)
     template_name = "idea/index.html"
-    paginate_by = 4
+    paginate_by = 6
 
 
 def character_detail(request, slug):
