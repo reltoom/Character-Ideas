@@ -12,6 +12,14 @@
 .about-image {
     width: 100%;
 }
+.index-image-container {
+    height: 80vh;
+    overflow: hidden;
+}
+
+.image-container img {
+    object-fit: cover;
+}
 /* Need to go over these...not custom--testing only*/
 .scale {
     width: 60%;

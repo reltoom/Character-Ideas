@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.text import slugify
 from .models import Comment, Character
+from cloudinary.forms import CloudinaryFileField
 
 
 
@@ -13,10 +14,14 @@ class CommentForm(forms.ModelForm):
 class CharacterForm(forms.ModelForm):
     class Meta:
         model = Character
-        fields = ['title', 'content', 'featured_image', 'excerpt']
+        fields = ['title', 'race', 'gender', 'class_archetype', 'weapons', 'armor', 'character_picture', 'description', 'excerpt',]
 
     title = forms.CharField(max_length=100, required=True)
-    content = forms.CharField(widget=forms.Textarea)
+    description = forms.CharField(widget=forms.Textarea)
+    excerpt = forms.CharField(max_length=200, required=False)
+    weapons = forms.CharField(max_length=100, required=False)
+    armor = forms.CharField(max_length=100, required=False)
+    character_picture = CloudinaryFileField(required=False)
 
 
     def clean_title(self):

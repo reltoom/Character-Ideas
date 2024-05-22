@@ -13,11 +13,11 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in character.featured_image.url %}
+                            <div class="index-image-container">
+                                {% if "placeholder" in character.character_picture.url %}
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ character.featured_image.url }}" alt="{{ character.title }}">
+                                <img class="card-img-top" src=" {{ character.character_picture.url }}" alt="{{ character.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="creator">Creator: {{ character.creator }}</p>

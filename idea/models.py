@@ -11,12 +11,50 @@ class Character(models.Model):
     creator = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="idea_characters"
     )
-    featured_image = CloudinaryField('image', default='placeholder')
-    content = models.TextField()
+    RACE_CHOICES = (
+        ("Dwarf", "Dwarf"),
+        ("Elf", "Elf"),
+        ("Half-Elf", "Half-Elf"),
+        ("Human", "Human"),
+        ("Halfling", "Halfling"),
+        ("Gnome", "Gnome"),
+        ("Half-Orc", "Half-Orc"),
+        ("Dragonborn", "Dragonborn"),
+        ("Tiefling", "Tiefling"),
+        ("Githyanki", "Githyanki"),
+    )
+    CLASS_CHOICES = (
+        ("Barbarian", "Barbarian"),
+        ("Bard", "Bard"),
+        ("Cleric", "Cleric"),
+        ("Druid", "Druid"),
+        ("Fighter", "Fighter"),
+        ("Monk", "Monk"),
+        ("Paladin", "Paladin"),
+        ("Ranger", "Ranger"),
+        ("Rogue", "Rogue"),
+        ("Sorcerer", "Sorcerer"),
+        ("Warlock", "Warlock"),
+        ("Wizard", "Wizard"),
+    )
+    GENDER_CHOICES = (
+        ("Male", "Male"),
+        ("Female", "Female"),
+        ("None", "None"),
+    )
+    race = models.CharField(max_length=50, choices=RACE_CHOICES, default="Human")
+    class_archetype = models.CharField(max_length=50, choices=CLASS_CHOICES, default="Fighter")
+    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="None") 
+    weapons = models.CharField(max_length=100, default="")
+    armor = models.CharField(max_length=100, default="")
+    character_picture = CloudinaryField("image", default="placeholder")
+    description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=1)
     excerpt = models.TextField(blank=True, max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
+
+    
 
     class Meta:
         ordering = ["-created_on", "creator"]
