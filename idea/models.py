@@ -40,11 +40,11 @@ class Character(models.Model):
     GENDER_CHOICES = (
         ("Male", "Male"),
         ("Female", "Female"),
-        ("None", "None"),
+        ("No Gender", "No Gender"),
     )
     race = models.CharField(max_length=50, choices=RACE_CHOICES, default="Human")
     class_archetype = models.CharField(max_length=50, choices=CLASS_CHOICES, default="Fighter")
-    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="None") 
+    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="No Gender") 
     weapons = models.CharField(max_length=100, default="")
     armor = models.CharField(max_length=100, default="")
     character_picture = CloudinaryField("image", default="placeholder")
