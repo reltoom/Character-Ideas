@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
+<div class="container-fluid index-background">
     <div class="row">
 
         <!-- Character Column -->
@@ -12,12 +12,12 @@
                 {% for character in character_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body">
+                        <div class="card-body card-background">
                             <div class="index-image-container">
                                 {% if "placeholder" in character.character_picture.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                <img class="card-img-top index-char-image" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ character.character_picture.url }}" alt="{{ character.title }}">
+                                <img class="card-img-top index-char-image" src=" {{ character.character_picture.url }}" alt="{{ character.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="creator">Creator: {{ character.creator }}</p>
@@ -27,7 +27,6 @@
                                 <h2 class="card-title">{{ character.title }}</h2>
                                 <p class="card-text">{{ character.excerpt }}</p>
                             </a>
-
                             <hr />
                             <p class="card-text text-muted h6">{{ character.created_on}}
                             </p>

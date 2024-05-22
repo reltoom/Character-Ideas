@@ -1,12 +1,48 @@
 .creator {
-    color: darkorange;
+    color: rgb(218, 165, 32);
     margin: 4px;
     text-transform: uppercase;
+}
+.navbar {
+    background-color: rgb(32, 37, 37);
+}
+
+.navbar-brand {
+    color:rgb(231, 46, 0);
+    text-transform: uppercase;
+    text-decoration: double;
+    font-weight: 900;
 }
 
 .footer {
     background-color: rgb(32, 37, 37);
-    
+}
+
+.footer-text {
+    color: rgb(218, 165, 32);
+    text-align: center;
+}
+
+.footer-icon {
+    color: rgb(231, 104, 0);
+    text-align: center;
+}
+
+.main-bg {
+    background-color: rgb(121, 121, 121);
+    background-image: url(https://i.pinimg.com/564x/34/23/dd/3423dd836c29940d5ec0294bf855c9cd.jpg);
+}
+
+.card-background {
+    background-color: rgb(32, 37, 37);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.card {
+    border: none;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
 }
 
 .about-image {
@@ -16,13 +52,29 @@
     height: 80vh;
     overflow: hidden;
     background-color: rgb(32, 37, 37);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
 }
 
-.image-container img {
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
+.index-char-image {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
 }
+
+.nav-link {
+    color: rgb(218, 165, 32);
+}
+
+.nav-link:hover {
+    color: rgb(231, 104, 0);
+}
+
+.log-text {}
+
+
+
+
+
 /* Need to go over these...not custom--testing only*/
 .scale {
     width: 60%;
