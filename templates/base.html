@@ -33,9 +33,9 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <span class="navbar-brand" href="{% url 'home' %}"><span class="">Character Share</span></span></span>
+            <span class="navbar-brand">Character Share</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -89,11 +89,11 @@
             </div>
         </div>
     </div>
-    <main class="flex-shrink-0 main-bg">
+    <main class="flex-shrink-0 text-end">
         {% if user.is_authenticated %}
-        <p class="text-end m-3 log-text">You are logged in as {{ user }}!</p>
+        <p class="m-0 log-text">You are logged in as {{ user }}!</p>
         {% else %}
-        <p class="text-end m-3 log-text">You are not logged in!</p>
+        <p class="m-0 log-text">You are not logged in!</p>
         {% endif %}
 
         {% block content %}

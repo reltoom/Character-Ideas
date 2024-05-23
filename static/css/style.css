@@ -1,17 +1,46 @@
-.creator {
-    color: rgb(218, 165, 32);
-    margin: 4px;
-    text-transform: uppercase;
-}
+/* Base.html style */
 .navbar {
     background-color: rgb(32, 37, 37);
-}
+} 
 
-.navbar-brand {
-    color:rgb(231, 46, 0);
-    text-transform: uppercase;
-    text-decoration: double;
-    font-weight: 900;
+.navbar-light {
+    .navbar-brand {
+        color:rgb(231, 46, 0);
+        text-transform: uppercase;
+        text-decoration: double;
+        font-weight: 900;
+        pointer-events: none; 
+    }
+  
+    .navbar-nav {
+      .nav-link {
+        color: rgb(218, 165, 32);
+  
+        &:hover,
+        &:focus {
+            color: rgb(231, 104, 0);
+        }
+  
+        &.disabled {
+            color: rgb(218, 165, 32);
+        }
+      }
+  
+      .show > .nav-link,
+      .nav-link.active {
+        color: rgb(255, 238, 3);
+      }
+    }
+  
+    .navbar-toggler-icon {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(218, 165, 32)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .navbar-toggler {
+        border-color: rgb(218, 165, 32);
+    }
 }
 
 .footer {
@@ -24,7 +53,7 @@
 }
 
 .footer-icon {
-    color: rgb(231, 104, 0);
+    color: rgb(218, 165, 32);
     text-align: center;
 }
 
@@ -33,11 +62,23 @@
     background-image: url(https://i.pinimg.com/564x/34/23/dd/3423dd836c29940d5ec0294bf855c9cd.jpg);
 }
 
+.log-text {
+    color: rgb(218, 165, 32);
+    background-color: rgb(32, 37, 37);
+    opacity: .85;
+    display: inline-flex;
+}
+
+
+/* index.html style */
+
 .card-background {
     background-color: rgb(32, 37, 37);
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    background-image: linear-gradient(rgb(32, 37, 37), rgb(206, 206, 206));
 }
+
 
 .card {
     border: none;
@@ -45,9 +86,6 @@
     border-top-right-radius: 10%;
 }
 
-.about-image {
-    width: 100%;
-}
 .index-image-container {
     height: 80vh;
     overflow: hidden;
@@ -59,15 +97,27 @@
 .index-char-image {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
+    
 }
 
-.nav-link {
+.creator {
     color: rgb(218, 165, 32);
+    margin: 4px;
+    text-transform: uppercase;
 }
 
-.nav-link:hover {
-    color: rgb(231, 104, 0);
+
+
+
+
+
+
+
+.about-image {
+    width: 100%;
 }
+
+
 
 .log-text {}
 
