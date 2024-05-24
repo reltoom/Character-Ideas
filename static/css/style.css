@@ -126,6 +126,23 @@ a {
     text-decoration: none;
 }
 
+.page-button {
+    color: rgb(218, 165, 32);
+    border-color: rgb(218, 165, 32);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    padding: 6px 6px;
+    font-weight: 600;
+}
+
+.page-button:hover {
+    color: rgb(231, 104, 0);
+    border-color: rgb(231, 104, 0);
+    background-color: rgb(32, 37, 37);
+}
+
 
 
 /* About page */
