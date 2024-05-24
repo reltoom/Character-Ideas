@@ -3,9 +3,8 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid index-background">
+<div class="container-fluid">
     <div class="row">
-
         <!-- Character Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -23,16 +22,16 @@
                                     <img class="card-img-top index-char-image" src=" {{ character.character_picture.url }}" alt="{{ character.title }}">
                                 </a>
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="creator">Creator: {{ character.creator }}</p>
-                                </div>
+                            </div>
+                            <div class="image-flash">
+                                <p class="creator">Creator: {{ character.creator }}</p>
                             </div>
                             <a href="{% url 'character_detail' character.slug %}">
-                                <h2 class="card-title">{{ character.title }}</h2>
-                                <p class="card-text">{{ character.excerpt }}</p>
+                                <h2 class="image-title">{{ character.title }}</h2>
+                                <p class="image-text">{{ character.excerpt }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ character.created_on}}
+                            <p class="created-on-text">{{ character.created_on}}
                             </p>
                         </div>
                     </div>

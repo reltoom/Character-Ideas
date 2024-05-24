@@ -76,7 +76,8 @@
     background-color: rgb(32, 37, 37);
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    background-image: linear-gradient(rgb(32, 37, 37), rgb(206, 206, 206));
+    /*background-image: linear-gradient(rgb(32, 37, 37), rgb(206, 206, 206));*/
+    background-image: linear-gradient(rgb(206, 206, 206), rgb(32, 37, 37));
 }
 
 
@@ -87,7 +88,7 @@
 }
 
 .index-image-container {
-    height: 80vh;
+    max-height: 80vh;
     overflow: hidden;
     background-color: rgb(32, 37, 37);
     border-top-left-radius: 10%;
@@ -97,17 +98,33 @@
 .index-char-image {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
-    
+    max-height: auto;
+    max-width: 100%;
+
+   
 }
 
 .creator {
-    color: rgb(218, 165, 32);
+    color: rgb(231, 104, 0);
     margin: 4px;
     text-transform: uppercase;
+    text-align: left;
 }
 
+.created-on-text {
+    color: rgb(231, 104, 0);
+    font-size: larger;
+}
 
+.image-title, .image-text {
+    color: rgb(218, 165, 32);
+    text-decoration: none;
+    text-align: center;
+}
 
+a {
+    text-decoration: none;
+}
 
 
 
