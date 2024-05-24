@@ -33,10 +33,10 @@ class CharacterForm(forms.ModelForm):
                 raise forms.ValidationError("A character with this title already exists.")
         return title
 
+
     def save(self, commit=True):
         instance = super().save(commit=False)
         instance.slug = slugify(self.cleaned_data['title'])
         if commit:
             instance.save()
         return instance
-        

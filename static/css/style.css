@@ -176,7 +176,6 @@ a {
 }
 
 /* Modal for delete character */
-
 #delete-char-modal {
     color: rgb(231, 46, 0);    
 }
@@ -191,6 +190,62 @@ a {
 .btn {
     border-radius: 25%;
 }
+
+/* Edit Character Form ids taken from crispy forms*/
+main {
+    color: rgb(218, 165, 32);
+}
+
+main h2 {
+    text-align: center;
+    color: rgb(231, 46, 0);
+    text-transform: uppercase;
+    font-weight: 800; 
+}
+
+form {
+    text-align: left;
+    max-width: 50%;
+    display: grid;
+    margin: auto;
+    background-color: rgb(32, 37, 37);
+    padding: 18px;
+    opacity: .95;
+}
+
+.input-group-text,
+#id_race,
+#id_gender,
+#id_class_archetype,
+.form-control,
+.form-control:focus,
+#id_title:focus,
+#id_weapons:focus,
+#id_armor:focus,
+#id_description:focus,
+#id_excerpt:focus {
+    color: rgb(255, 238, 3);
+    border-color: rgb(255, 238, 3);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
+form > button[type="submit"]:last-child {
+    color: rgb(231, 46, 0);
+    border-color: rgb(231, 46, 0);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
+
+/* Media query for Forms Only to give better width */
+@media screen and (max-width: 768px) {
+    form {
+        max-width: 100%;
+    }
+}
+
+
 
 /* About page */
 
