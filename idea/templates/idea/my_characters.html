@@ -12,28 +12,32 @@
                 {% for character in characters %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
+                        <div class="card-body card-background">
+                            <div class="index-image-container">
                                 {% if "placeholder" in character.character_picture.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                <a href="{% url 'character_detail' character.slug %}">
+                                    <img class="card-img-top index-char-image" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                </a>
                                 {% else %}
-                                <img class="card-img-top" src="{{ character.character_picture.url }}" alt="{{ character.title }}">
+                                <a href="{% url 'character_detail' character.slug %}">
+                                    <img class="card-img-top index-char-image" src=" {{ character.character_picture.url }}" alt="{{ character.title }}">
+                                </a>
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="creator">Creator: {{ character.creator }}</p>
-                                </div>
+                            </div>
+                            <div class="image-flash">
+                                <p class="creator">Creator: {{ character.creator }}</p>
                             </div>
                             <a href="{% url 'character_detail' character.slug %}" class="">
-                                <h2 class="card-title">{{ character.title }}</h2>
-                                <p class="card-text">{{ character.excerpt }}</p>
+                                <h2 class="image-title">{{ character.title }}</h2>
+                                <p class="image-text">{{ character.excerpt }}</p>
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ character.created_on }}
+                            <p class="created-on-text">{{ character.created_on }}
                             </p>
-                            <div class="d-flex justify-content-between">
-                                <a href="{% url 'edit_character' character.slug %}" class="btn btn-primary">Edit Character</a>
-                                <button class="btn btn-danger delete-char-button" data-character-slug="{{  character.slug  }}">Delete Character</button>
+                            <div class="d-flex justify-content-around">
+                                <a href="{% url 'edit_character' character.slug %}" class="edit-char-button">Edit Character</a>
+                                <button class="delete-char-button" data-character-slug="{{  character.slug  }}">Delete Character</button>
                             </div>
                         </div>
                     </div>
@@ -53,11 +57,11 @@
             {% if page_obj.has_previous %}
             <li>
                 <a href="?page={{ page_obj.previous_page_number }}"
-                  class="page-link">&laquo; PREV</a>
+                  class="page-button">&laquo; PREV</a>
             </li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-button"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>

@@ -76,7 +76,6 @@
     background-color: rgb(32, 37, 37);
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    /*background-image: linear-gradient(rgb(32, 37, 37), rgb(206, 206, 206));*/
     background-image: linear-gradient(rgb(206, 206, 206), rgb(32, 37, 37));
 }
 
@@ -90,7 +89,6 @@
 .index-image-container {
     max-height: 80vh;
     overflow: hidden;
-    background-color: rgb(32, 37, 37);
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
 }
@@ -131,8 +129,7 @@ a {
     border-color: rgb(218, 165, 32);
     border-style: solid;
     background-color: rgb(32, 37, 37);
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    border-radius: 25%;
     padding: 6px 6px;
     font-weight: 600;
 }
@@ -143,7 +140,57 @@ a {
     background-color: rgb(32, 37, 37);
 }
 
+/* My characters page */
 
+.delete-char-button {
+    background-color:rgb(206, 206, 206);
+    color: rgb(32, 37, 37);
+    border-radius: 25%;
+    border-style: solid;
+    border-color:rgb(32, 37, 37);
+    padding: 8px 8px;
+    font-weight: 500;
+}
+
+.delete-char-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-color: rgb(255, 255, 255);
+}
+
+.edit-char-button {
+    background-color:rgb(206, 206, 206);
+    color: rgb(32, 37, 37);
+    border-radius: 25%;
+    border-style: solid;
+    border-color:rgb(32, 37, 37);
+    padding: 8px 8px;
+    font-weight: 500;
+}
+
+.edit-char-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);  
+}
+
+/* Modal for delete character */
+
+#delete-char-modal {
+    color: rgb(231, 46, 0);    
+}
+
+.modal-body {
+    color: rgb(218, 165, 32);
+}
+.modal-content {
+    background-image: linear-gradient(rgb(206, 206, 206), rgb(32, 37, 37));
+}
+
+.btn {
+    border-radius: 25%;
+}
 
 /* About page */
 

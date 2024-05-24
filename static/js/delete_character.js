@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteButtons[i].addEventListener("click", (e) => {
             e.preventDefault(); // Preventing the default anchor behavior otherwise throws 404 error
             const characterSlug = e.target.getAttribute("data-character-slug");
-            const characterTitle = e.target.closest('.card-body').querySelector('.card-title').innerText;
+            const characterTitle = e.target.closest('.card-body').querySelector('.image-title').innerText;
             const characterTitlePlaceholder = document.getElementById("character-title-placeholder");
             characterTitlePlaceholder.innerText = characterTitle;
             // Ensure characterSlug is not undefined before setting deleteConfirm href
