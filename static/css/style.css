@@ -257,11 +257,75 @@ div > h3,
     
 }
 
-.sign-out-button {
+#sign-out-button {
     font-weight: 800;
     font-size: 180%;
     border-width: 8px;
 }
+
+#sign-out-button:hover {
+    color: rgb(155, 33, 2);
+    border-color: rgb(155, 33, 2);
+    background-color: rgb(0, 0, 0);
+}
+
+/* Register Page */
+
+.account-already {
+    background-color: rgb(32, 37, 37);
+    text-align: center;
+}
+
+.link {
+    color: rgb(231, 46, 0);
+}
+
+.link:hover {
+    color: rgb(155, 33, 2);
+}
+
+#id_username,
+#id_email,
+#id_password1,
+#id_password2 {
+    color: rgb(218, 165, 32);
+    border-color: rgb(218, 165, 32);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
+#id_username:focus,
+#id_email:focus,
+#id_password1:focus,
+#id_password2:focus {
+    color: rgb(255, 238, 3);
+    border-color: rgb(255, 238, 3);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
+/* Sign In */
+.sign-in-text {
+    background-color: rgb(32, 37, 37);
+    text-align: center;
+}
+
+#id_login,
+#id_password {
+    color: rgb(218, 165, 32);
+    border-color: rgb(218, 165, 32);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
+#id_login:focus,
+#id_password:focus {
+    color: rgb(255, 238, 3);
+    border-color: rgb(255, 238, 3);
+    border-style: solid;
+    background-color: rgb(32, 37, 37);
+}
+
 
 
 /* About page */
@@ -269,9 +333,6 @@ div > h3,
 .about-image {
     width: 100%;
 }
-
-
-
 
 
 

@@ -12,8 +12,8 @@
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the Character Share. To leave a comment or like someone else's character, please log in. Or create an account!<a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+            <p class="sign-in-text">{% blocktrans %}Sign in to create a character or comment one. No account? <a class="link" href="{{ signup_url }}">Sign up</a>
+                here.{% endblocktrans %}</p>
         </div>
     </div>
     <div class="row">
@@ -24,7 +24,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn" id="sign-out-button" type="submit">{% trans "Sign In" %}</button>
             </form>
         </div>
     </div>
