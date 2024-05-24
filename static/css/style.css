@@ -245,6 +245,23 @@ form > button[type="submit"]:last-child {
     }
 }
 
+/* LogOut */
+div > h3,
+.are-you-sure  {
+    color: rgb(231, 46, 0);
+    font-size: 190%;
+    font-weight: bold;
+    background-color: rgb(32, 37, 37);
+    text-align: center;
+    opacity: .95;
+    
+}
+
+.sign-out-button {
+    font-weight: 800;
+    font-size: 180%;
+    border-width: 8px;
+}
 
 
 /* About page */
