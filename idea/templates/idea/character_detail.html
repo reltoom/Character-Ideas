@@ -22,7 +22,7 @@
                   <article class="card-text">Description: {{ character.description | safe }}</article>
                 </div> 
             </div>
-            <div class="col-md-6">
+            <div class="d-none d-md-block col-md-6">
               {% if "placeholder" in character.character_picture.url %}
               <img class="card-img-top" id="about-image-default" src="{% static 'images/default.jpg' %}" alt="placeholder image">
               {% else %}
