@@ -145,7 +145,19 @@ a {
 
 /* About page */
 
+.about-text {
+    background-color: rgb(32, 37, 37);
+    opacity: .95;
+    font-size: 150%;
+}
 
+#about-content {
+    text-align: center;
+}
+
+#about-form {
+    width: 100%;
+}
 
 
 
@@ -454,57 +466,4 @@ div > h3,
     border-color: rgb(255, 238, 3);
     border-style: solid;
     background-color: rgb(32, 37, 37);
-}
-
-
-
-/* Need to go over these...not custom--testing only*/
-.scale {
-    width: 60%;
-    height: auto;
-    
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
 }

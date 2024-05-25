@@ -3,18 +3,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 about-text">
     <div class="row">
-        <div class="col-12 col-md-4 text-center">
+        <div class="col-md-5">
             {% if "placeholder" in about.profile_image.url %}
             <img class="about-image" src="{% static 'images/nobody.jpg' %}" alt="placeholder image" >
             {% else %}
             <img class="about-image" src="{{ about.profile_image.url }}" alt="{{ about.title }}">
             {% endif %}
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-md-6">
             <h2>{{ about.title }}</h2>
-            {{ about.content | safe }}
+            <article id="about-content">{{ about.content | safe }}</article>
         </div>
     </div>
     <div class="row">
@@ -24,11 +24,11 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 my-5">
+        <div class="col-12 my-5 text-center">
             <h2>Have a question for Character Share?</h2>
             <p>Feel free to ask or mention anything to us.
                 Any concerns or issues you might be having with the site, just let us know!</p>
-            <form method="post">
+            <form method="post" id="about-form">
                 {{ question_form | crispy }}
                 {% csrf_token %}
                 <button class="btn btn-secondary" type="submit">Submit</button>
