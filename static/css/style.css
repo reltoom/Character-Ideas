@@ -84,6 +84,9 @@
     border: none;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
+    background-color: rgb(32, 37, 37);
+    opacity: .95;
+    margin: auto;
 }
 
 .index-image-container {
@@ -140,9 +143,110 @@ a {
     background-color: rgb(32, 37, 37);
 }
 
-/* My characters page */
+/* About page */
 
-.delete-char-button {
+
+
+
+
+/* Character Detail page */
+.masthead {
+    min-height: 85vh;
+    padding: 20px 0;
+    align-items: stretch;
+}
+
+#info-all-together{
+    background-color: rgb(32, 37, 37);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    font-size: 130%;
+    margin-top: 10px;
+    opacity: .95;
+}
+
+.character-title {
+    padding: 40px;
+}
+
+
+.character-title,
+.character-info {
+    color: rgb(218, 165, 32);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#detail-article {
+    text-align: left;
+    background-color: rgb(32, 37, 37);
+    border: none;
+    padding: 40px;
+    flex-grow: 1;
+}
+
+
+#about-image-default,
+#about-image-default2 {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    margin-top: 10px;
+}
+
+.masthead .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.detail-view-area {
+    flex-grow: 1;
+    display: flex;
+}
+
+.detail-view-area .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ /* Comments on Details page */
+
+.fa-comments {
+    color: rgb(231, 46, 0);
+    display: flex-inline;
+    font-weight: 900;
+    font-size: 130%;
+    background-color: rgb(32, 37, 37);
+}
+
+.between-char-info-comments {
+    border: 2px solid rgb(231, 46, 0);
+    
+}
+
+#h3-comments,
+#h3-comments2 {
+    color: rgb(231, 46, 0);
+    background-color:rgba(255, 250, 250, 0);
+}
+
+.comments-section {
+    text-align: center;
+}
+#deleteModalLabel {
+    color: rgb(231, 46, 0);
+}
+
+.modal-body {
+    text-align: center;
+}
+
+#id_body {
+    width: 150%;
+}
+
+#submit-comment {
     background-color:rgb(206, 206, 206);
     color: rgb(32, 37, 37);
     border-radius: 25%;
@@ -152,13 +256,27 @@ a {
     font-weight: 500;
 }
 
-.delete-char-button:hover {
+#submit-comment:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
+    border-style: solid;
     border-color: rgb(255, 255, 255);
 }
 
-.edit-char-button {
+/* Media query for comment text area to give better width */
+@media screen and (max-width: 768px) {
+    #id_body {
+        width: 100%;
+    }
+}
+
+
+/* My characters page */
+
+.delete-char-button,
+.edit-char-button,
+.btn-delete,
+.btn-edit {
     background-color:rgb(206, 206, 206);
     color: rgb(32, 37, 37);
     border-radius: 25%;
@@ -168,11 +286,14 @@ a {
     font-weight: 500;
 }
 
-.edit-char-button:hover {
+.delete-char-button:hover,
+.edit-char-button:hover,
+.btn-delete:hover,
+.btn-edit:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     border-style: solid;
-    border-color: rgb(255, 255, 255);  
+    border-color: rgb(255, 255, 255);
 }
 
 /* Modal for delete character */
@@ -231,10 +352,19 @@ form {
 }
 
 form > button[type="submit"]:last-child {
-    color: rgb(231, 46, 0);
-    border-color: rgb(231, 46, 0);
+    background-color:rgb(206, 206, 206);
+    color: rgb(32, 37, 37);
+    border-radius: 25%;
     border-style: solid;
-    background-color: rgb(32, 37, 37);
+    border-color:rgb(32, 37, 37);
+    padding: 8px 8px;
+    font-weight: 500;
+}
+form > button[type="submit"]:last-child:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
 }
 
 
@@ -260,13 +390,13 @@ div > h3,
 #sign-out-button {
     font-weight: 800;
     font-size: 180%;
-    border-width: 8px;
 }
 
 #sign-out-button:hover {
-    color: rgb(155, 33, 2);
-    border-color: rgb(155, 33, 2);
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
 }
 
 /* Register Page */
@@ -325,15 +455,6 @@ div > h3,
     border-style: solid;
     background-color: rgb(32, 37, 37);
 }
-
-
-
-/* About page */
-
-.about-image {
-    width: 100%;
-}
-
 
 
 
