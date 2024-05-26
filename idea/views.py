@@ -9,7 +9,7 @@ from django.forms.utils import ErrorList
 from .models import Character, Comment
 from .forms import CommentForm, CharacterForm
 
-# Create your views here.
+
 class CharacterList(generic.ListView):
     queryset = Character.objects.filter(status=1)
     template_name = "idea/index.html"
