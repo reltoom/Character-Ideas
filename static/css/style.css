@@ -128,19 +128,20 @@ a {
 }
 
 .page-button {
-    color: rgb(218, 165, 32);
-    border-color: rgb(218, 165, 32);
-    border-style: solid;
-    background-color: rgb(32, 37, 37);
+    background-color:rgb(206, 206, 206);
+    color: rgb(32, 37, 37);
     border-radius: 25%;
-    padding: 6px 6px;
-    font-weight: 600;
+    border-style: solid;
+    border-color:rgb(32, 37, 37);
+    padding: 8px 8px;
+    font-weight: 500;
 }
 
 .page-button:hover {
-    color: rgb(231, 104, 0);
-    border-color: rgb(231, 104, 0);
-    background-color: rgb(32, 37, 37);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
 }
 
 /* About page */
