@@ -1,39 +1,388 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Character Share
 
-Welcome,
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Character Share is a site that brings together people who enjoy playing roleplaying games such as D&D. Once a user is logged in, they are able to create their own character ideas and share them with others. Browsing through all the characters, users are able to leave comments and express their thougths about someone else's ideas. Character ideas and comments to those characters are automatically approved and are visible right away. If a comment or character idea is offensive or not uplifting, the system admin can log in and put characters and comments to 'approval is waiting'. This check is in place to ensure that the site stays a positive and uplifting place for all.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Visit the deployed site here: [Character Share](https://character-ideas-280e74d8cf8c.herokuapp.com/)
 
-## Codeanywhere Reminders
+## CONTENTS
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+* [User Experience](#user-experience-ux)
+  * [User Stories](#user-stories)
+  * [Planning Process](#planning-process)
+  * [Design](#design)
+    * [Colour Scheme](#colour-scheme)
+    * [Future Implementations](#future-implementations)
+* [Features](#features)
+* [Technologies](#technologies)
+  * [Languages](#languages)
+  * [Websites & Programs](#websites-programs)
+* [Deployment](#deployment)
+* [Testing](#testing)
+   * [Validator Test](#validator-test)
+   * [Bugs](#bugs)
+* [Credits](#credits)
+  * [Code Used](#code-used)
+  * [Acknowledgments](#acknowledgments)
 
-`python3 -m http.server`
+## User Experience (UX)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+Site User
+|  | |
+|:-------:|:--------|
+ | Register Account | As a User I can register an account so that I can create my character ideas |
+ | Log in and out | As a User I can log in or out of my account so that others cannot use my profile |
+ | View the main page | As a User I can view some character ideas so that I don't get overwhelmed |
+ | View a single character idea | As a User I can click and view a single idea so that I can read more about it |
+ | Send in a question to site admin | As a user I can send/submit a question so that question the site admin about something |
+ | About the site | As a User I can go to the about page so that read more about the site and purpose |
+ | Create character idea | As a User I can create my own character idea so that I can share it with others |
+ | Edit my character | As a User I can edit/update my character so that if I have changed my mind I can |
+ | Delete my Character Idea | As a User I can *delete my character Idea so that if I don't want it up any more, I can take it away |
+ | Comment on a character | As a User I can make a commment on a character so that I can write my thoughts on it |
+ | Edit a comment | As a User I can edit my comment so that if I made a mistake, I can change it |
+ | Delete my comment | As a user I can delete my comment so that if I don't want it to be there any more, I can take it away |
 
-`http_server`
+Site Admin
+|  | |
+|:-------:|:--------|
+ | Create idea | As a Admin I can create ideas so that show off my ideas and start the site |
+ | Edit-delete-approve character Ideas | As a admin I can edit-delete and approve ideas so that site will function as intended |
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+#### Site User Goals
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* Create and share character ideas
+* Comment and connect with others about their characters and mine
+* Bring together like minded people to share their ideas.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Planning Process
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+I used Github to create a Agile work process that used User Stories with tasks. I added these to a project board where it was easy and clear to keep track of what still needed to be done. 
 
----
 
-Happy coding!
+Planning out the layout of my site was done in [Balsamiq](https://balsamiq.com/).
+
+
+<details><summary><b>Github Board and Wireframes</b></summary>
+
+![Board](static/images/readme/board.png)
+
+![WireFrames](static/images/readme/wireframes.png)
+
+</details><br/>
+
+For the Models I created a ERD on paper but have transcribed it over to excel.
+* Characters - holds information about user's character idea and is linked to the User Model which is built in.
+* Comment - holds information about the comments a user can create. This is linked to Character and User models.
+* About - holds information about the site, is not linked to another model.
+* QuestionsForUs - holds form information about inquiries to the site admin, not linked to another model.
+
+<details><summary><b>Models ERD</b></summary>
+
+![Erd](static/images/readme/erd.png)
+
+</details><br/>
+
+## Design
+
+The base layout/design is used from the walkthrough project 'I Think Therefor I Blog' and Crispy Forms. I did customize most aspects of Character Share to better suit my wants for the site.
+
+### Color Scheme
+
+I chose a darker overall look with bright accents for my site. From black and shades of grey to white and then dark yellows to orange to red, a wide range but appealing to the eye.
+* `Rgb(231, 46, 0)` Is for the Character Share title and other important text areas.
+* `Rgb(218, 165, 32)` Is for Navlinks and some text areas.
+* `Rgb(231, 104, 0)` Is for focused Navlinks and small text details.
+* `Rgb(32, 37, 37)` Is used for general background color and for buttons.
+* `Rgb(0, 0, 0)` Is for on hover of buttons, a darker version of the above.
+* `Rgb(206, 206, 206)` Is the background color of buttons.
+* `rgb(255, 255, 255)` Is for on hover of buttons, a brighter version of the above
+* 
+
+  ![Character Share](static/images/readme/colorscheme.png)
+
+### Future Implementations
+
+1. Creating a Favorites button, to save your favorite character ideas.
+2. User Profile Page which will display account info, favorite characters, number of favorites,
+    your comments and your characters.
+3. Search bar for users to look up characters via key words
+4. Add automated testing
+5. Creating a Admin html page so the admin panel does not need to be used.
+
+
+## Features
+
+Features of Character Share!
+
+### Navigation
+The navigation bar is simple yet elegant. The site title is displayed first with coloring to draw attention to it. The navigation links are a different color and the active site is even lighter yet. On mobile devices, the navigation links are collapse into a menu bar, but still shows the title.
+
+<details><summary><b>Navbar different devices</b></summary>
+
+![Navbarlarge](static/images/readme/navbarlarge.png)
+![Navbarmobile](static/images/readme/navbarmobile.png)
+
+</details><br/>
+
+If not logged into Character Share you see the following links and a message informing you that you are not logged in:
+* Home
+* About
+* Register
+* Login
+
+<details><summary><b>Not logged in</b></summary>
+
+![Notloggedin](static/images/readme/notloggedin.png)
+
+</details><br/>
+
+If logged into Character Share you see the following links and a message informing you that you are logged in:
+* Home
+* About
+* Logout
+* Create Character
+* My Characters
+
+<details><summary><b>Logged in</b></summary>
+
+![Loggedin](static/images/readme/loggedin.png)
+
+</details><br/>
+
+### Home
+The main Home page is where all the character ideas created by everyone is. It is paginated to display 6 characters per page with a Next and/or Previous button at the bottom.
+Clicking the imager or Title of a character will take the user to the Character Detail page.
+
+<details><summary><b>Home page</b></summary>
+
+![Showingcharacters](static/images/readme/home.png)
+
+![Next](static/images/readme/nextbutton.png)
+![Previous](static/images/readme/prevbutton.png)
+
+</details><br/>
+
+### Character Details
+On this page a Character can be examined closer. It shows all parts of the Character Model and users are able to comment on the character design below it.
+Once logged in a user can leave a comment, edit their own comments or delete their own comments( will be asked confirmation)
+
+<details><summary><b>Character Details page</b></summary>
+
+![Characterdetails](static/images/readme/chardetail.png)
+
+![Comments](static/images/readme/commentsection.png)
+
+![Editdeletebuttons](static/images/readme/editdeletecomment.png)
+
+</details><br/>
+
+### About
+
+In the about section, a user can read why the site is there and what is expected of users. Below it is a contact form to get in touch with site admins.
+
+<details><summary><b>About</b></summary>
+
+![about](static/images/readme/about1.png)
+
+![aboutform](static/images/readme/about2.png)
+
+</details><br/>
+
+### Register
+A user can register to Character Share if they have not already done so.
+
+<details><summary><b>Register</b></summary>
+
+![Register](static/images/readme/register.png)
+
+</details><br/>
+
+### Sign in
+A user can sign in to Character Share if they have an account.
+
+<details><summary><b>Sign In</b></summary>
+
+![Signin](static/images/readme/signin.png)
+
+</details><br/>
+
+### Log Out
+A user can sign out of their account if they are signed in.
+
+<details><summary><b>Sign Out</b></summary>
+
+![Signout](static/images/readme/signout.png)
+
+</details><br/>
+
+### Create Character
+A user can create their character idea if they are signed in. Fill in the required fields and attach a photo if you like (there is a default picture otherwise).
+
+<details><summary><b>Create Character</b></summary>
+
+![Createcharacter](static/images/readme/create1.png)
+
+![Createcharacter](static/images/readme/create2.png)
+
+</details><br/>
+
+### My Characters
+Similar to the Home page, but with only characters belonging to the logged in User, this page displays character ideas (paginated by 6 again).
+Here is where the User can also Edit or Delete one of their characters. Clicking Edit will retreive all the character info and prefill the form for you.
+Clicking Delete, will pop up a modal asking for confirmation.
+
+<details><summary><b>My Characters page</b></summary>
+
+![Editordeletecharacters](static/images/readme/mychars.png)
+
+![Delete](static/images/readme/deletechar.png)
+
+
+</details><br/>
+
+### Admin Panel
+A superuser can log into the admin panel by going to the main page and appending a /admin and then logging in.
+Here the admin can edit, delete, and approve all comments and characters. Change and update the about page and see which users have accounts.
+
+<details><summary><b>Admin Panel</b></summary>
+
+![Adminpanel](static/images/readme/adminpanel.png)
+
+</details><br/>
+
+## Technologies 
+
+### Languages 
+
+* Python -Provides the functionality for the Character Share.
+* HTML5 - Provides the content and structure for the Character Share.
+* CSS - Provides the styling for the Character Share.
+* JavaScript - Provides interactive elements of the Character Share.
+
+###  Websites & Programs 
+* [Bootstrap](https://getbootstrap.com/) - Build fas, responsive sites with this frontend toolkit.
+* [Django](https://www.djangoproject.com/) - Framework for building apps quickly and with less code.
+* [Balsamiq](https://balsamiq.com/) - For wireframes.
+* [Chatgpt](https://chat.openai.com/) - Used to help identify problems in code and possible way to solve them.
+* [Github](https://github.com/) - Created repository and stored files here after commits. Users Stories and project board.
+* [Heroku](https://heroku.com/) - For deploying Character Share.
+* [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Wrote code and did commits to Github from here.
+* [W3 School](https://www.w3schools.com/) Read and used as a guide for some code.
+
+
+
+## Deployment 
+
+Character share is deployed from Heroku - [Character Share](https://character-ideas-280e74d8cf8c.herokuapp.com/).
+
+To Deploy the site from Heroku Pages:
+
+1. Create a GitHub repository from the Code Institute template.
+2. Open repository in VScode (or your choice of program).
+3. Open terminal and install Django and supporting libraries that are required:
+   * pip3 install 'django<4' gunicorn
+   * pip3 install 'dj_database_url psycopg2
+   * pip3 install 'dj3-cloudinary-storage
+4. Create the requirements file in command terminal: 
+   * pip3 freeze --local > requirements.txt  
+ This will create and add required libraries to requirements.tx
+5. Create project in command terminal:
+    * jango-admin startproject YOUR_PROJECT_NAME . 
+6. Create the first app from command terminal:
+    * python3 manage.py startapp APP_NAME
+7. Added the created app to the settings.py under INSTALLED_APPS.
+8. Migrate the changes from the terminal:
+    * python3 manage.py migrate
+9. Log in or create account in Heroku and then log in.
+10. Once logged in, in the upper right hand side of the screen, click 'New' and then 'Create new app'.
+Choose a name that is not taken, in this case Character Share, and click 'Create app'. Connect this to your Github.
+11. To add a database to the app you need to go to the resources tab ->> add-ons, search for 'Heroku Postgres' and add it.
+12. Go to the settings tab and click on the reveal Config Vars button. Copy the text from DATABASE_URL and create a Config Var withe the url for your database.
+13. Go back to VSCode and create a new env.py in the top level directory. Then add these rows:
+    * import os - This imports the os library
+    * os.environ["DATABASE_URL_FROM HEROKU"] - This sets the environment variables.
+    * os.environ["SECRET_KEY"] - Here you can choose whatever secret key you want.
+14. Add Secret key to config vars in Heroku.
+15. In VScode, go to setting.py and add the following at the top:
+    * import os
+    * import dj_database_url
+    * if os.path.isfile("env.py"):
+    * import env
+16. In the settings file, remove the insecure secret key and replace it with: SECRET_KEY = os.environ.get('SECRET_KEY')
+17. Add the link to DATABASE_URL in setting.py to correctly link your database.
+18. Save all your fields and migrate the changes from the command line.
+19. Connect Cloudinary for image storage solution. First you need to create a Cloudinary account and from the Cloudinary dashboard copy the API Environment Variable.
+20. Go back to the env.py file and add the Cloudinary url (it's very important that the url is correct):
+    * os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+21. Add cloudinary url in the Config Vars in Heroku.
+22. Add a DISABLE_COLLECTSTATIC and key '1' to config vars.
+23. We need to fix the Heroku templates directory to work for us. Change the templates directory in settings.py to TEMPLATES_DIR in the teamplates array.
+24. Add Heroku in settings.py to ALLOWED_HOSTS.
+25. Create a Procfile file in the top directory of project and add the line 'web: gunicorn characterideas.wsgi'
+26. Save, commit and push all changes to Github, which will read over to Heroku.
+27. Click Deploy and then down to manual deploy to Deploy the site via Heroku.
+
+#### How to Fork in Github
+
+If you want to fork this repository in Github:
+
+1. Go to the repository for this project [Character Share](https://github.com/reltoom/Character-Ideas).
+2. In the upper right hand area of the screen, click the 'Fork' button.
+3. Then when the menu drops down, click 'Create New Fork'. (If you are the owner of a repository, you cannot fork.) 
+
+#### How to Clone in Github
+
+If you want to clone this repository:
+
+1. Go to the repository for this project [Character Share](https://github.com/reltoom/Character-Ideas).
+3. Click on the green 'Code' button and then select how you would like to clone: HTTPS, SSH or GitHub CLI (under the 'local' tab). 
+4. Either copy the desired code or click to open with another program from the list below the code.
+4. Open your code editor and go to 'Clone Repository' usually under 'File'.
+5. Paste if your code and then 'Clone'.
+
+## Testing
+
+Choices Saga has been tested on: Chrome, Microsoft Edge and Safari and works equally well on each.
+
+Each user input has been tested with incorrect input to test validation errors making sure all key strokes are accounted for. This has been done several times for each user Choice as well as Intro and Puzzle section. Puzzle runs within the proper paramaters and is solvable.
+
+I had have friends and my brothers test the game and check user error possiblities.
+
+## Validator Test
+
+[Pep8 Python Validator](https://pep8ci.herokuapp.com/) is used to validate Choices Saga python code.
+
+There are no errors in Choices Saga!
+
+### Bugs
+
+Here are some, but not all, of the bugs that were fixed during development. 
+
+| Bug | Fix |
+| :--- | :--- |
+| In the toggle function, after user input, the grid was not updating properly | Had to recreate grid using new values |
+| Used long and repetative code to create grid and update adjacent cells | Created an adjacents dictonary and ran through it with a for loop to check and update properly. |
+| After game restart, it was skipping over story sections | Deleted True False global variables that were used to track progress. Called function directly after user input to go to next section instead | 
+
+## Credits
+
+### Code Used
+
+Using the tutorial videos from Code Institute and some help from Chatgpt, I was able to figure out and construct the code for Character Share. There was alot of trial error and some hindsight for future developments.
+ 
+
+Structure for the README file is from my project [Ways to Relax](https://github.com/reltoom/Project-1-Relax) adjusted to fit Character Share.
+Some content for the README is taken from [Worldofmarcus](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#features-left-to-implement).
+
+### Acknowledgments
+
+Thank you to my daughter and wife for helping support me through my studies.
+
+Thank you to the Swedish Slack channel for keeping my spirits high.
+
+Thank you to my friends on the great feeback to my project.
