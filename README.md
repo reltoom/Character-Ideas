@@ -410,7 +410,7 @@ Using the tutorial videos from Code Institute and some help from Chatgpt, I was 
  
 
 Structure for the README file is from my project [Ways to Relax](https://github.com/reltoom/Project-1-Relax) adjusted to fit Character Share.
-Some content, mainly deployment, for the README is taken from [Worldofmarcus](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#features-left-to-implement).
+Some content, mainly deployment section, for the README is taken from [Worldofmarcus](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#features-left-to-implement).
 
 ### Acknowledgments
 
