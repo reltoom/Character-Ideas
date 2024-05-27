@@ -11,9 +11,10 @@ def about(request):
             question_form.save()
             messages.add_message(request,
                                  messages.SUCCESS,
-                                 "Thanks for contacting Character Share with "
-                                 "your inquiry! We will get back to you soon!")
-    
+                                 "Thanks for contacting Character Share"
+                                 " with your inquiry!"
+                                 "We will get back to you soon!")
+
     """
     Renders the About page
     """

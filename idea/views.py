@@ -44,7 +44,7 @@ def character_detail(request, slug):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment created!')
-            
+
     comment_form = CommentForm()
 
     return render(
@@ -53,7 +53,7 @@ def character_detail(request, slug):
         {"character": character,
          "comments": comments,
          "comment_count": comment_count,
-         "comment_form": comment_form,},
+         "comment_form": comment_form, },
     )
 
 
@@ -73,9 +73,11 @@ def comment_edit(request, slug, comment_id):
             comment.character = character
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment updated!')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Comment updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('character_detail', args=[slug]))
 
@@ -84,7 +86,7 @@ def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
-    queryset = Character.objects.filter(status=1) 
+    queryset = Character.objects.filter(status=1)
     character = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
@@ -92,7 +94,8 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('character_detail', args=[slug]))
 
@@ -107,7 +110,7 @@ def create_character(request):
             character.save()
             return redirect('home')  # Redirect to the 'home' after save
         else:
-             # Check if the error is due to non-unique title
+            # Check if the error is due to non-unique title
             if 'title' in character_form.errors:
                 # Pre-fill the form with user entered data
                 character_form = CharacterForm(request.POST)
@@ -117,10 +120,11 @@ def create_character(request):
                 # Render the form with errors
                 return render(request, 'idea/create_character.html',
                               {'character_form': character_form})
-    
+
     # GET request - display the empty form
     character_form = CharacterForm()
-    return render(request, 'idea/create_character.html', {'character_form': character_form})
+    return render(request, 'idea/create_character.html',
+                  {'character_form': character_form})
 
 
 @login_required
@@ -129,7 +133,8 @@ def my_characters(request):
     Display a list of characters created by the logged-in user.
     """
     characters = Character.objects.filter(creator=request.user)
-    return render(request, 'idea/my_characters.html', {'characters': characters})
+    return render(request, 'idea/my_characters.html',
+                  {'characters': characters})
 
 
 class MyCharactersList(LoginRequiredMixin, ListView):
@@ -140,7 +145,7 @@ class MyCharactersList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Character.objects.filter(creator=self.request.user)
-    
+
 
 @login_required
 def edit_character(request, slug):
@@ -153,7 +158,8 @@ def edit_character(request, slug):
             return redirect('my_characters')
     else:
         form = CharacterForm(instance=character)
-    return render(request, 'idea/edit_character.html', {'character': character, 'character_form': form})
+    return render(request, 'idea/edit_character.html',
+                  {'character': character, 'character_form': form})
 
 
 @login_required
@@ -162,7 +168,7 @@ def delete_character(request, slug):
     character = get_object_or_404(Character, slug=slug, creator=request.user)
     # Perform the deletion operation
     character.delete()
-    #Successful delete message
+    # Successful delete message
     messages.success(request, 'Character successfully deleted!')
     # Redirect the user back to my_characters page
     return redirect('my_characters')

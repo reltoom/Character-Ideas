@@ -4,13 +4,12 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
+
 class Character(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     creator = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="idea_characters"
-    )
+        User, on_delete=models.CASCADE, related_name="idea_characters")
     RACE_CHOICES = (
         ("Dwarf", "Dwarf"),
         ("Elf", "Elf"),
@@ -42,9 +41,13 @@ class Character(models.Model):
         ("Female", "Female"),
         ("No Gender", "No Gender"),
     )
-    race = models.CharField(max_length=50, choices=RACE_CHOICES, default="Human")
-    class_archetype = models.CharField(max_length=50, choices=CLASS_CHOICES, default="Fighter")
-    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="No Gender") 
+    race = models.CharField(max_length=50, choices=RACE_CHOICES,
+                            default="Human")
+    class_archetype = models.CharField(max_length=50,
+                                       choices=CLASS_CHOICES,
+                                       default="Fighter")
+    gender = models.CharField(max_length=50,
+                              choices=GENDER_CHOICES, default="No Gender")
     weapons = models.CharField(max_length=100, default="")
     armor = models.CharField(max_length=100, default="")
     character_picture = CloudinaryField("image", default="placeholder")
@@ -54,11 +57,9 @@ class Character(models.Model):
     excerpt = models.TextField(blank=True, max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
 
-    
-
     class Meta:
         ordering = ["-created_on", "creator"]
-    
+
     def __str__(self):
         return f"{self.title} | by {self.creator}"
 

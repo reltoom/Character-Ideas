@@ -20,3 +20,4 @@ class QuestionForUs(models.Model):
 
     def __str__(self):
         return f"A question from {self.name}"
+    
