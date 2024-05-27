@@ -20,7 +20,7 @@ Visit the deployed site here: [Character Share](https://character-ideas-280e74d8
 * [Deployment](#deployment)
 * [Testing](#testing)
    * [Validator Test](#validator-test)
-   * [Bugs](#bugs)
+   * [Manual Testing](#manual-testing)
 * [Credits](#credits)
   * [Code Used](#code-used)
   * [Acknowledgments](#acknowledgments)
@@ -347,27 +347,60 @@ If you want to clone this repository:
 
 ## Testing
 
-Choices Saga has been tested on: Chrome, Microsoft Edge and Safari and works equally well on each.
+Character Share has been tested on: Chrome, Microsoft Edge and Safari and works equally well on each.
 
-Each user input has been tested with incorrect input to test validation errors making sure all key strokes are accounted for. This has been done several times for each user Choice as well as Intro and Puzzle section. Puzzle runs within the proper paramaters and is solvable.
+### Maunual Testing
+| | |
+|:-------:|:--------|
+| Paginated Home page | Clicking on the Next or Previous button works as intended, taking me to the next page. |
+| Character picture | Clicking on the character picture takes me to the character details page. |
+| Character title | Clicking on the character title takes me to the character details page. |
+| Navbar links | Clicking on each of the navbar links when not logged, takes me to the correct corresponding page. |
+| Navbar links | Clicking on each of the navbar links when logged in, takes me to the correct corresponding page. |
+| Navbar mobile | Navbar is collapsable and links work as intended. |
+| About form Name | Name field must be filled in before being able to send form. |
+| About form Email | Email field must be filled in with an email (@) before being able to send form. |
+| About form Message | Message field must be filled in before being able to send form. |
+| About form submit button | Submit button works and notifies user when the form has been sent. |
+| Register form | Username and password must be filled in before being able to register. Email is optional. |
+| Register form button | Sign up button works when the form is filled out properly and creates a new account. |
+| Login form | Username and password need to match what was created at Register |
+| Login form button | Sign in button logs user in if correct combination is used. |
+| Logout button | Clicking the logout button will correctly log the user out of their account. |
+| | |
+| Create character form | Form is filled with the correct fields from the Character Model. |
+| Create-title | Title must be unique and cannot be blank. |
+| Create-race | Human is the default but a user can use the drop down to select a different race. |
+| Create-Gender | No gender is the default but a user can use the drop down to select which they like. |
+| Create-class-archetype | Fighter is the default class but can be changed with the dropdown choices. |
+| Create-weapons | Can be blank and user can write what they want in it. |
+| Create-armor | Can be blank and user can write what they want in it. |
+| Create-picture | If user does not upload an image, a default is provided |
+| Create-description | Cannot be blank but has no minimum limit to what you can write. |
+| Create-excerpt | Can be blank and user can write what they want in it. |
+| Create-button | Filling in the required forms creates a new character when button is clicked. |
+| My characters | Only displays characters created but the logged in user. |
+| My char buttons | Both the edit and delete buttons appera in the my characters view. |
+| Delete character | Clicking the Delete button will pop up a message asking for confirmation of deletion. |
+| Confirm delete | Canceling deleting character works, as well as confirming you want to delete character. Message shows informing user of successful deletion. |
+| Edit character | Correctly retrieves all current character information and prefills form for you. Title does not need to be changed as you are editing a character. |
+| Posting comment | Once logged in, going to the character detail view, a user can leave a comment. |
+| Edit comment | A user who has left a comment can edit the comment, it correctly fills in the comment 'body' with the message you want to edit. |
+| Delete comment | A user who has left a comment can delete their comments. Confirmation is required and works correctly.|
+| Comment count | Comment counter right underneath the picture, above the leave a comment, counts comments correctly. |
 
-I had have friends and my brothers test the game and check user error possiblities.
+
 
 ## Validator Test
 
-[Pep8 Python Validator](https://pep8ci.herokuapp.com/) is used to validate Choices Saga python code.
+[Pep8 Python Validator](https://pep8ci.herokuapp.com/) is used to validate Character Share python code.
 
-There are no errors in Choices Saga!
+There are no errors shown for code in Character Share!
 
-### Bugs
+[W3C](https://validator.w3.org/) is used to validate the HTML for Character Share, there are no errors. 1 warning about article lacking heading on the About page.
 
-Here are some, but not all, of the bugs that were fixed during development. 
+[JShint](https://jshint.com/) is used to validate the Javascript for Character Share. No errors.
 
-| Bug | Fix |
-| :--- | :--- |
-| In the toggle function, after user input, the grid was not updating properly | Had to recreate grid using new values |
-| Used long and repetative code to create grid and update adjacent cells | Created an adjacents dictonary and ran through it with a for loop to check and update properly. |
-| After game restart, it was skipping over story sections | Deleted True False global variables that were used to track progress. Called function directly after user input to go to next section instead | 
 
 ## Credits
 
